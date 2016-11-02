@@ -1,0 +1,117 @@
+[{
+    "code": "AT",
+    "currency": "EUR",
+    "name": "Autriche"
+}, {
+    "code": "BE",
+    "currency": "EUR",
+    "name": "Belgique"
+}, {
+    "code": "BG",
+    "currency": "BGN",
+    "name": "Bulgarie"
+}, {
+    "code": "CY",
+    "currency": "EUR",
+    "name": "Chypre"
+}, {
+    "code": "CZ",
+    "currency": "CZK",
+    "name": "R\u00e9publique Tch\u00e8que"
+}, {
+    "code": "DE",
+    "currency": "EUR",
+    "name": "Allemagne"
+}, {
+    "code": "DK",
+    "currency": "DKK",
+    "name": "Danemark"
+}, {
+    "code": "EE",
+    "currency": "EEK",
+    "name": "Estonie"
+}, {
+    "code": "ES",
+    "currency": "EUR",
+    "name": "Espagne"
+}, {
+    "code": "FI",
+    "currency": "EUR",
+    "name": "Finlande"
+}, {
+    "code": "GB",
+    "currency": "GBP",
+    "name": "Royaume-Uni"
+}, {
+    "code": "GR",
+    "currency": "EUR",
+    "name": "Gr\u00e8ce"
+}, {
+    "code": "HU",
+    "currency": "HUF",
+    "name": "Hongrie"
+}, {
+    "code": "IE",
+    "currency": "EUR",
+    "name": "Irlande"
+}, {
+    "code": "IT",
+    "currency": "EUR",
+    "name": "Italie"
+}, {
+    "code": "JP",
+    "currency": "JPY",
+    "name": "Japon"
+}, {
+    "code": "LT",
+    "currency": "LTL",
+    "name": "Lituanie"
+}, {
+    "code": "LU",
+    "currency": "EUR",
+    "name": "Luxembourg"
+}, {
+    "code": "LV",
+    "currency": "LVL",
+    "name": "Lettonie"
+}, {
+    "code": "MT",
+    "currency": "EUR",
+    "name": "Malte"
+}, {
+    "code": "NL",
+    "currency": "EUR",
+    "name": "Pays-Bas"
+}, {
+    "code": "PL",
+    "currency": "PLN",
+    "name": "Pologne"
+}, {
+    "code": "PT",
+    "currency": "EUR",
+    "name": "Portugal"
+}, {
+    "code": "RO",
+    "currency": "EUR",
+    "name": "Roumanie"
+}, {
+    "code": "SE",
+    "currency": "SEK",
+    "name": "Su\u00e8de"
+}, {
+    "code": "SI",
+    "currency": "EUR",
+    "name": "Slov\u00e9nie"
+}, {
+    "code": "SK",
+    "currency": "EUR",
+    "name": "Slovaquie"
+}, {
+    "code": "US",
+    "currency": "USD",
+    "name": "Etats-Unis"
+}, {
+    "code": "FR",
+    "currency": "EUR",
+    "name": "France"
+}]
