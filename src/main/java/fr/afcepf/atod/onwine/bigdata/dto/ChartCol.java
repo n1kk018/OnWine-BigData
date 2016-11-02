@@ -1,9 +1,12 @@
 package fr.afcepf.atod.onwine.bigdata.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author nikko
  *
  */
+@Component
 public class ChartCol {
     private String id;
     private String label;

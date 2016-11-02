@@ -2,14 +2,12 @@ package fr.afcepf.atod.onwine.bigdata.rest;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.afcepf.atod.onwine.bigdata.dto.ChartFormatter;
@@ -18,57 +16,48 @@ import fr.afcepf.atod.onwine.bigdata.repository.OrderRepository;
 
 @Component
 @RestController
-@RequestMapping("/orders")
-@Produces(MediaType.APPLICATION_JSON)
+@RequestMapping(value="/orders", produces="application/json")
 @CrossOrigin
 public class OrderMetrics {
-    @Inject
+    @Autowired
     private OrderRepository orderRepository; 
     
-    @GET
-    @RequestMapping("/currencies")
+    @RequestMapping(value="/currencies",method=RequestMethod.GET)
     public List<KeyValDTO> currencyAggregate() {
         return orderRepository.aggregateOrderByCurrency();
     }
     
-    @GET
-    @RequestMapping("/currenciesChartData")
+    @RequestMapping(value="/currenciesChartData", method=RequestMethod.GET)
     public ChartFormatter currenciesChartData() {
         return orderRepository.getCurrencieschartData();
     }
     
-    @GET
-    @RequestMapping("/countries")
+    @RequestMapping(value="/countries", method=RequestMethod.GET)
     public List<KeyValDTO> countryAggregate() {
         return orderRepository.aggregateOrderByCountry();
     }
     
-    @GET
-    @RequestMapping("/countriesChartData")
+    @RequestMapping(value="/countriesChartData", method=RequestMethod.GET)
     public ChartFormatter countriesChartData() {
         return orderRepository.getCountrieschartData();
     }
     
-    @GET
-    @RequestMapping("/types")
+    @RequestMapping(value="/types", method=RequestMethod.GET)
     public List<KeyValDTO> typesAggregate() {
         return orderRepository.aggregateByTypes();
     }
     
-    @GET
-    @RequestMapping("/typesChartData")
+    @RequestMapping(value="/typesChartData", method=RequestMethod.GET)
     public ChartFormatter typesChartData() {
         return orderRepository.getTypesChartData();
     }
     
-    @GET
-    @RequestMapping("/topProducts")
+    @RequestMapping(value="/topProducts", method=RequestMethod.GET)
     public List<KeyValDTO> topProductsAggregate() {
         return orderRepository.aggregateTopProducts();
     }
-    
-    @GET
-    @RequestMapping("/topProductsChartData")
+
+    @RequestMapping(value="/topProductsChartData", method=RequestMethod.GET)
     public ChartFormatter topProductsChartData() {
         return orderRepository.topProductsChartData();
     }

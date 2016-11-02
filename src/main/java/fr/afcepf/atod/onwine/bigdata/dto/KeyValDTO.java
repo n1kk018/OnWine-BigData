@@ -1,5 +1,8 @@
 package fr.afcepf.atod.onwine.bigdata.dto;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class KeyValDTO {
     private Object val;
     private String key;

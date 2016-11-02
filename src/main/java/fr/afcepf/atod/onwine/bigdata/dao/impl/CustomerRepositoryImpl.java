@@ -2,8 +2,7 @@ package fr.afcepf.atod.onwine.bigdata.dao.impl;
 
 import java.util.Random;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
@@ -14,7 +13,7 @@ import fr.afcepf.atod.onwine.bigdata.domain.Customer;
 public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
     private final MongoTemplate mongoTemplate;
     
-    @Inject
+    @Autowired
     public CustomerRepositoryImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }

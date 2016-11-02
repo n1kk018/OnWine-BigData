@@ -2,6 +2,9 @@ package fr.afcepf.atod.onwine.bigdata.dto;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ChartFormatter {
     private List<ChartCol> cols;
     private List<ChartRow> rows;

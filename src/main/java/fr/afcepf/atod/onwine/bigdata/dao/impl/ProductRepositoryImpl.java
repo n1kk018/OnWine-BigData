@@ -3,8 +3,8 @@ package fr.afcepf.atod.onwine.bigdata.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 
@@ -18,7 +18,7 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
     
     private final MongoTemplate mongoTemplate;
     
-    @Inject
+    @Autowired
     public ProductRepositoryImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
