@@ -6,7 +6,7 @@
 	<groupId>fr.afcepf.atod.onwine.bigdata</groupId>
 	<artifactId>Onwine-BigData</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Onwine-BigData</name>
 	<description>Demo bigdata + spring boot for onwine project</description>
 
