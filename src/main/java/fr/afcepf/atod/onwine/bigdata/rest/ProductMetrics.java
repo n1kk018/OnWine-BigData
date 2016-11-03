@@ -13,12 +13,8 @@ import fr.afcepf.atod.onwine.bigdata.dto.ChartFormatter;
 import fr.afcepf.atod.onwine.bigdata.dto.KeyValDTO;
 import fr.afcepf.atod.onwine.bigdata.repository.ProductRepository;
 
-
-
-@Component
 @RestController
 @RequestMapping(value="/products", produces="application/json")
-@CrossOrigin
 public class ProductMetrics {
     
     @Autowired

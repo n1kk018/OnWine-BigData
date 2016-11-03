@@ -7,7 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = OnwineBigDataApplication.class)
+@ComponentScan
 public class OnwineBigDataApplication {
 
 	public static void main(String[] args) {

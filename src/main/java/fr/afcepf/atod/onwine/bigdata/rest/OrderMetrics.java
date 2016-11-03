@@ -14,10 +14,8 @@ import fr.afcepf.atod.onwine.bigdata.dto.ChartFormatter;
 import fr.afcepf.atod.onwine.bigdata.dto.KeyValDTO;
 import fr.afcepf.atod.onwine.bigdata.repository.OrderRepository;
 
-@Component
 @RestController
 @RequestMapping(value="/orders", produces="application/json")
-@CrossOrigin
 public class OrderMetrics {
     @Autowired
     private OrderRepository orderRepository; 
