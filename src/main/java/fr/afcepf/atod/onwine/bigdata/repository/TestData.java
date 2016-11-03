@@ -54,7 +54,7 @@ public class TestData implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepo;
     
-    private static final int NB_ORDER = 100000;
+    private static final int NB_ORDER = 15000;
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     
     /*public static void main(String[] args) {

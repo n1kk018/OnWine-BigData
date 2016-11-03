@@ -27,6 +27,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
     @Override
     public List<KeyValDTO> aggregateOrderByCurrency() {
         return mongoTemplate.aggregate(Aggregation.newAggregation(
+                Aggregation.match(Criteria.where("currency").ne("EUR")),
                 Aggregation.group("currency")
                 .last("currency").as("key")
                 .count().as("val"),
@@ -64,7 +65,8 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
                 Aggregation.unwind("orderDetails"),
                 Aggregation.group("orderDetails.productOrdered.productType")
                 .last("orderDetails.productOrdered.productType").as("key")
-                .sum("orderDetails.quantite").as("val")
+                .sum("orderDetails.quantite").as("val"),
+                Aggregation.sort(Sort.Direction.ASC, "key")
         ), Order.class,KeyValDTO.class).getMappedResults();
     }
 

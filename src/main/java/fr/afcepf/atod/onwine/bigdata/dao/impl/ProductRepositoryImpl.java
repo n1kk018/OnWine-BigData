@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 
@@ -28,7 +29,8 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
         return mongoTemplate.aggregate(Aggregation.newAggregation(
                 Aggregation.group("productType")
                 .last("productType").as("key")
-                .count().as("val")
+                .count().as("val"),
+                Aggregation.sort(Sort.Direction.ASC, "key")
         ), Product.class,KeyValDTO.class).getMappedResults();
     }
     
