@@ -14,7 +14,6 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -55,7 +54,7 @@ public class TestData implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepo;
     
-    private static final int NB_ORDER = 10000;
+    private static final int NB_ORDER = 100000;
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     
     /*public static void main(String[] args) {
@@ -82,9 +81,6 @@ public class TestData implements CommandLineRunner {
             int idxCivility = new Random().nextInt(civilities.size());
             int nbDetails = (new Random().nextInt(5))+1;
             String currency = countries.get(idxCountry).getCurrency();
-            if(i%20==0) {
-                currency = "EUR";
-            }
             String randomZip = String.format("%05d",new Random().nextInt(99999));
             int randomNumber = i+((int) Math.random()*10);
             Customer c=null;
