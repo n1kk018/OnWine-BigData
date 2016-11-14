@@ -19,6 +19,8 @@ public class Product implements Serializable {
 	
 	@Id
 	private String id;
+	@Field("jpa_id")
+	private Long jpaId;
 	private String name;
 	private String appellation;
 	private Double price;
@@ -37,9 +39,10 @@ public class Product implements Serializable {
 	public Product() {
 	}
 
-    public Product(String paramName, Double paramPrice, String paramAppellation,
+    public Product(Long paramJpaId, String paramName, Double paramPrice, String paramAppellation,
             String paramProductType, String paramProductVintage, String paramProductVarietal) {
         super();
+        jpaId = paramJpaId;
         name = paramName;
         price = paramPrice;
         appellation = paramAppellation;
@@ -101,6 +104,14 @@ public class Product implements Serializable {
     
     
 
+    public Long getJpaId() {
+        return jpaId;
+    }
+
+    public void setJpaId(Long paramJpaId) {
+        jpaId = paramJpaId;
+    }
+
     public String getAppellation() {
         return appellation;
     }
@@ -111,7 +122,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", appellation=" + appellation + ", price=" + price
+        return "Product [id=" + id + ",japId=" + jpaId + ", name=" + name + ", appellation=" + appellation + ", price=" + price
                 + ", productType=" + productType + ", productVintage=" + productVintage + ", productVarietal="
                 + productVarietal + "]";
     }

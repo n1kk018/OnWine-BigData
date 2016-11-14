@@ -23,6 +23,8 @@ public class Customer implements Serializable {
 	
 	@Id
     private String id;
+	@Field("jpa_id")
+	private Long jpaId;
 	private  String civility;
     private  String lastname;
     private  String firstname;
@@ -37,9 +39,10 @@ public class Customer implements Serializable {
     
     // ------------ Getters && setters --------------//
 
-    public Customer(String paramCivility, String paramLastname,
+    public Customer(Long paramJpaId, String paramCivility, String paramLastname,
             String paramFirstname, Date paramCreatedAt) {
         super();
+        jpaId = paramJpaId;
         civility = paramCivility;
         lastname = paramLastname;
         firstname = paramFirstname;
@@ -110,11 +113,22 @@ public class Customer implements Serializable {
     public void addAdress(Adress paramAdress) {
         adresses.add(paramAdress);
     }
+    
+    
+    
+    public Long getJpaId() {
+        return jpaId;
+    }
+
+
+    public void setJpaId(Long paramJpaId) {
+        jpaId = paramJpaId;
+    }
 
 
     @Override
     public String toString() {
-        return "Customer [id=" + id + ", civility=" + civility + ", lastname=" + lastname + ", firstname=" + firstname
+        return "Customer [id=" + id + ", jpaId=" + jpaId + ", civility=" + civility + ", lastname=" + lastname + ", firstname=" + firstname
                 + ", createdAt=" + createdAt  + "]";
     }        
 }

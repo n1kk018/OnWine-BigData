@@ -1,4 +1,4 @@
-package fr.afcepf.atod.onwine.bigdata.repository;
+package fr.afcepf.atod.onwine.bigdata;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -14,6 +14,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -28,6 +29,10 @@ import fr.afcepf.atod.onwine.bigdata.domain.Customer;
 import fr.afcepf.atod.onwine.bigdata.domain.Order;
 import fr.afcepf.atod.onwine.bigdata.domain.OrderDetail;
 import fr.afcepf.atod.onwine.bigdata.domain.Product;
+import fr.afcepf.atod.onwine.bigdata.repository.CountryRepository;
+import fr.afcepf.atod.onwine.bigdata.repository.CustomerRepository;
+import fr.afcepf.atod.onwine.bigdata.repository.OrderRepository;
+import fr.afcepf.atod.onwine.bigdata.repository.ProductRepository;
 import fr.afcepf.atod.onwine.ws.soap.CurrenciesWSException_Exception;
 import fr.afcepf.atod.onwine.ws.soap.CurrencyConverterService;
 /*import fr.afcepf.atod.onwine.ws.soap.DeliveriesWSException_Exception;
@@ -54,7 +59,7 @@ public class TestData implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepo;
     
-    private static final int NB_ORDER = 100000;
+    private static final int NB_ORDER = 10000;
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     
     /*public static void main(String[] args) {
@@ -76,20 +81,21 @@ public class TestData implements CommandLineRunner {
         civilities.add("Mr");
         civilities.add("Mme");
         civilities.add("Mle");
-        for (int i = 0; i < NB_ORDER; i++) {
+        Long odId = 0L;
+        for (Long i = 0L; i < NB_ORDER; i++) {
             int idxCountry = new Random().nextInt(countries.size());
             int idxCivility = new Random().nextInt(civilities.size());
             int nbDetails = (new Random().nextInt(5))+1;
             String currency = countries.get(idxCountry).getCurrency();
             String randomZip = String.format("%05d",new Random().nextInt(99999));
-            int randomNumber = i+((int) Math.random()*10);
+            int randomNumber = (int) (i+((int) Math.random()*10));
             Customer c=null;
             Adress facturation=null;
             Adress livraison=null;
             Timestamp inscription = null;
             if(i<((NB_ORDER*70)/100)) {
                 inscription = getRandomDate();
-                c = new Customer(civilities.get(idxCivility),"John","Doe", inscription);
+                c = new Customer(i,civilities.get(idxCivility),"John","Doe", inscription);
                 facturation = new Adress("rue random"+i, randomNumber, randomZip, "randomCity"+i, countries.get(idxCountry), true);
                 livraison = new Adress("rue random"+i, randomNumber, randomZip, "randomCity"+i, countries.get(idxCountry), false);
                 c.addAdress(facturation);
@@ -115,7 +121,7 @@ public class TestData implements CommandLineRunner {
                 if(currency != "EUR") {
                     price = convert(price,currency);
                 }
-                OrderDetail od = new OrderDetail(quantity,price,products.get(idxProduct));
+                OrderDetail od = new OrderDetail(++odId,quantity,price,products.get(idxProduct));
                 o.addOrderDetail(od);
                 subTotal += quantity * products.get(idxProduct).getPrice();
                 qtTotal += quantity;
@@ -139,6 +145,7 @@ public class TestData implements CommandLineRunner {
             }
             o.setTaxes(taxes);*/
             o.setTaxes(10D);
+            o.setJpaId(i);
             orderRepo.save(o);
         }
         System.out.println("==============Fin insertion==============");
