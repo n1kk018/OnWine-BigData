@@ -1,6 +1,5 @@
 package fr.afcepf.atod.onwine.bigdata.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +64,8 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
                 Aggregation.unwind("orderDetails"),
                 Aggregation.group("orderDetails.productOrdered.productType")
                 .last("orderDetails.productOrdered.productType").as("key")
-                .sum("orderDetails.quantite").as("val")
+                .sum("orderDetails.quantite").as("val"),
+                Aggregation.sort(Sort.Direction.ASC, "key")
         ), Order.class,KeyValDTO.class).getMappedResults();
     }
 
