@@ -1,6 +1,5 @@
 package fr.afcepf.atod.onwine.bigdata.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
