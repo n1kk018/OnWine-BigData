@@ -11,4 +11,5 @@ public interface ProductRepository extends MongoRepository<Product, String>, Pro
     List<Product> findByProductVintage(String productVintage);
     List<Product> findByproductType(String productType);
     List<Product> findByProductVarietal(String productvarietal);
+    Product findOneByJpaId(Long id);
 }

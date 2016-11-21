@@ -42,6 +42,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+          <groupId>org.apache.mahout</groupId>
+          <artifactId>mahout-core</artifactId>
+          <version>0.9</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -66,7 +71,7 @@
                     <!-- using wsdl from an url -->
                     <wsdlUrls>
                         <wsdlUrl>
-                            http://localhost:8180/OnWine-CurrenciesWS-Biz/CurrencyConverter?wsdl
+                            http://localhost:8380/OnWine-CurrenciesWS-Biz/CurrencyConverter?wsdl
                         </wsdlUrl>
                         <!--<wsdlUrl>
                             http://localhost:8180/OnWine-DeliveryWS-Biz/DeliveryCalculator?wsdl

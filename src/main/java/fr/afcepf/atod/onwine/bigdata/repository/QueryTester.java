@@ -15,22 +15,17 @@ import org.springframework.data.mongodb.core.query.Criteria;
 
 import fr.afcepf.atod.onwine.bigdata.domain.Order;
 import fr.afcepf.atod.onwine.bigdata.domain.OrderDetail;
+import fr.afcepf.atod.onwine.bigdata.domain.Product;
 import fr.afcepf.atod.onwine.bigdata.dto.ChartRowVal;
 import fr.afcepf.atod.onwine.bigdata.dto.KeyValDTO;
+import fr.afcepf.atod.onwine.bigdata.mahout.api.ItemRecommenderService;
 
-@EnableAutoConfiguration
 @ComponentScan("fr.afcepf.atod.onwine.bigdata")
 public class QueryTester implements CommandLineRunner {
     @Autowired
     private MongoTemplate mongoTemplate;
     @Autowired
-    private ProductRepository productRepo;
-    @Autowired
-    private OrderRepository orderRepo;
-    @Autowired
-    private CountryRepository countryRepo;
-    @Autowired
-    private CustomerRepository customerRepo;
+    private ItemRecommenderService service;
     
     /*public static void main(String[] args) {
         SpringApplication.run(QueryTester.class, args);
@@ -38,19 +33,10 @@ public class QueryTester implements CommandLineRunner {
     
     @Override
     public void run(String... paramArg0) throws Exception {
-        Aggregation agg = Aggregation.newAggregation(
-                Aggregation.unwind("orderDetails"),
-                Aggregation.group("orderDetails.productOrdered.name")
-                .last("orderDetails.productOrdered.name").as("key")
-                .sum("orderDetails.quantite").as("val"),
-                Aggregation.sort(Sort.Direction.DESC,"val"),
-                Aggregation.limit(10)
-        );
-        //Convert the aggregation result into a List
-        AggregationResults<KeyValDTO> test
-                = mongoTemplate.aggregate(agg, Order.class, KeyValDTO.class);
-        //ChartRowVal result = groupResults.getUniqueMappedResult();
-        System.out.println(test.getMappedResults());
+        List<Product> list = service.getRecommendedItemsByOrdersSimilarity(50);
+        for (Product product : list) {
+            System.out.println(product);
+        }
     }
 
 }

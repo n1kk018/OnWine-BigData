@@ -21,6 +21,8 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = -1192893252389460956L;
 	@Id
 	private String id;
+	@Field("jpa_id")
+	private Long jpaId;
 	@Field("created_at")
 	private Date createdAt;
 	@Field("paid_at")
@@ -43,9 +45,10 @@ public class Order implements Serializable {
 	
 
 	
-	public Order(Date paramCreatedAt, Date paramPaidAt, Double paramShippingFees, Double paramTaxes,
+	public Order(Long paramJpaId, Date paramCreatedAt, Date paramPaidAt, Double paramShippingFees, Double paramTaxes,
             String paramCurrency, Customer paramCustomer) {
         super();
+        jpaId = paramJpaId;
         createdAt = paramCreatedAt;
         paidAt = paramPaidAt;
         shippingFees = paramShippingFees;
@@ -127,11 +130,26 @@ public class Order implements Serializable {
     public void setTaxes(Double paramTaxes) {
         taxes = paramTaxes;
     }
+    
+    
+
+    public Long getJpaId() {
+        return jpaId;
+    }
+
+
+
+
+    public void setJpaId(Long paramJpaId) {
+        jpaId = paramJpaId;
+    }
+
+
 
 
     @Override
     public String toString() {
-        return "Order [id=" + id + ", createdAt=" + createdAt + ", paidAt=" + paidAt + ", shippingFees=" + shippingFees
+        return "Order [id=" + id + ", jpaId=" + jpaId + ", createdAt=" + createdAt + ", paidAt=" + paidAt + ", shippingFees=" + shippingFees
                 + ", taxes=" + taxes + ", currency=" + currency + ", customer=" + customer + ", orderDetails="
                 + orderDetails + "]";
     }

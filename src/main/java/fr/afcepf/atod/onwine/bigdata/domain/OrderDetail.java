@@ -21,6 +21,8 @@ public class OrderDetail implements Serializable {
     
 	@Id
     private String Id;
+	@Field("jpa_id")
+	private Long jpaId;
     private int quantite;
     @Field("converted_unit_price")
     private Double convertedUnitPrice;
@@ -32,9 +34,10 @@ public class OrderDetail implements Serializable {
     public OrderDetail() {
     }
     
-    public OrderDetail(int paramQuantite, Double paramConvertedUnitPrice,
+    public OrderDetail(Long paramJpaId,int paramQuantite, Double paramConvertedUnitPrice,
             Product paramProductOrdered) {
         super();
+        jpaId = paramJpaId;
         quantite = paramQuantite;
         convertedUnitPrice = paramConvertedUnitPrice;
         productOrdered = paramProductOrdered;
@@ -42,10 +45,18 @@ public class OrderDetail implements Serializable {
     
     
     // ------ Getters && Setters ------//
-
+    
    
     public int getQuantite() {
         return quantite;
+    }
+
+    public Long getJpaId() {
+        return jpaId;
+    }
+
+    public void setJpaId(Long paramJpaId) {
+        jpaId = paramJpaId;
     }
 
     public void setQuantite(int quantite) {
@@ -70,7 +81,7 @@ public class OrderDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "OrderDetail [Id=" + Id + ", quantite=" + quantite +  ", convertedUnitPrice="
+        return "OrderDetail [Id=" + Id + ",japId=" + jpaId + ", quantite=" + quantite +  ", convertedUnitPrice="
                 + convertedUnitPrice + ", productOrdered=" + productOrdered + "]";
     }  
 }
