@@ -14,7 +14,6 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -35,14 +34,13 @@ import fr.afcepf.atod.onwine.bigdata.repository.OrderRepository;
 import fr.afcepf.atod.onwine.bigdata.repository.ProductRepository;
 import fr.afcepf.atod.onwine.ws.soap.CurrenciesWSException_Exception;
 import fr.afcepf.atod.onwine.ws.soap.CurrencyConverterService;
-/*import fr.afcepf.atod.onwine.ws.soap.DeliveriesWSException_Exception;
+import fr.afcepf.atod.onwine.ws.soap.DeliveriesWSException_Exception;
 import fr.afcepf.atod.onwine.ws.soap.DeliveryCalculatorService;
-import fr.afcepf.atod.onwine.ws.soap.DeliveryQuantity;*/
 import fr.afcepf.atod.onwine.ws.soap.ICurrencyConverter;
-/*import fr.afcepf.atod.onwine.ws.soap.IDeliveryCalculator;
+import fr.afcepf.atod.onwine.ws.soap.IDeliveryCalculator;
 import fr.afcepf.atod.onwine.ws.soap.ServiceTax;
 import fr.afcepf.atod.onwine.ws.soap.ServiceTaxBeanService;
-import fr.afcepf.atod.onwine.ws.soap.TaxWSException_Exception;*/
+import fr.afcepf.atod.onwine.ws.soap.TaxWSException_Exception;
 
 @Component
 @EnableAutoConfiguration
@@ -59,7 +57,7 @@ public class TestData implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepo;
     
-    private static final int NB_ORDER = 250000;
+    private static final int NB_ORDER = 100;
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     
     /*public static void main(String[] args) {
@@ -133,18 +131,16 @@ public class TestData implements CommandLineRunner {
             Timestamp paiement = (Timestamp) priseCommande.clone();
             paiement.setTime((long)o.getCreatedAt().getTime()+(new Random().nextInt(3600)*1000));
             o.setPaidAt(paiement);
-            /*Double shippingfees = getShippingFees(qtTotal, livraison.getCountry().getName());
+            Double shippingfees = getShippingFees(qtTotal, livraison.getCountry().getCode());
             if(currency != "EUR") {
                 shippingfees = convert(shippingfees,currency);
             }
-            o.setShippingFees(shippingfees);*/
-            o.setShippingFees(15D);
-            /*Double taxes = getTaxes(subTotal, facturation.getCountry().getCode());
+            o.setShippingFees(shippingfees);
+            Double taxes = getTaxes(subTotal, facturation.getCountry().getCode());
             if(currency != "EUR") {
                 taxes = convert(taxes,currency);
             }
-            o.setTaxes(taxes);*/
-            o.setTaxes(10D);
+            o.setTaxes(taxes);
             o.setJpaId(i);
             orderRepo.save(o);
         }
@@ -178,18 +174,15 @@ public class TestData implements CommandLineRunner {
         return client.convert(price, "EUR", trgtCurrency);
     }
     
-    /*private Double getShippingFees(Integer quantity, String pays) throws CurrenciesWSException_Exception, DeliveriesWSException_Exception {
+    private Double getShippingFees(Integer quantity, String pays) throws CurrenciesWSException_Exception, DeliveriesWSException_Exception {
         IDeliveryCalculator client = new DeliveryCalculatorService().getDeliveryCalculatorPort();
-        DeliveryQuantity dq = new DeliveryQuantity();
-        dq.setQuantity(quantity);
-        dq.setSrcCountryName(pays);
-        return client.getRateDeliveryTotal(dq);
+        return client.getRateDeliveryTotal(pays,quantity);
     }
     
     private double getTaxes(Double totalHt, String cntryISO) throws TaxWSException_Exception {
         ServiceTax client = new ServiceTaxBeanService().getServiceTaxBeanPort();
         return client.calculTax(totalHt, cntryISO);
-    }*/
+    }
     
     private Timestamp getRandomDate() {
         long offset = Timestamp.valueOf("2016-07-18 00:00:00").getTime();
