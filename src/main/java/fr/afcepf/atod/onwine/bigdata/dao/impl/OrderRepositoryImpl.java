@@ -28,7 +28,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
         return mongoTemplate.aggregate(Aggregation.newAggregation(
                 Aggregation.match(Criteria.where("currency").ne("EUR")),
                 Aggregation.group("currency")
-                .last("currency").as("key")
+                .last("currencyLbl").as("key")
                 .count().as("val"),
                 Aggregation.sort(Sort.Direction.DESC,"val")
         ), Order.class,KeyValDTO.class).getMappedResults();
@@ -45,8 +45,8 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
         return mongoTemplate.aggregate(Aggregation.newAggregation(
                 Aggregation.unwind("customer.adresses"),
                 Aggregation.match(Criteria.where("customer.adresses.billing").in(true)),
-                Aggregation.group("customer.adresses.country.code")
-                .last("customer.adresses.country.code").as("key")
+                Aggregation.group("customer.adresses.country.name")
+                .last("customer.adresses.country.name").as("key")
                 .count().as("val")
         ), Order.class,KeyValDTO.class).getMappedResults();
         

@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * by roro
@@ -18,6 +19,8 @@ public class Country implements Serializable {
     private String id;
     private String code;
     private String currency;
+    @Field("currency_lbl")
+    private String currencyLbl;
     private String name;
     
     // ------- Constructors -------//
@@ -28,9 +31,10 @@ public class Country implements Serializable {
     public Country() {
     }
 
-    public Country(String code, String currency, String name) {
+    public Country(String code, String currency, String currencyLbl, String name) {
         this.code = code;
         this.currency = currency;
+        this.currencyLbl = currencyLbl;
         this.name = name;
     }
     
@@ -64,6 +68,14 @@ public class Country implements Serializable {
     public void setCode(String paramCode) {
         code = paramCode;
     }
+    
+    public String getCurrencyLbl() {
+        return currencyLbl;
+    }
+
+    public void setCurrencyLbl(String paramCurrencyLbl) {
+        currencyLbl = paramCurrencyLbl;
+    }
 
     public String getName() {
         return name;
@@ -75,10 +87,6 @@ public class Country implements Serializable {
 
     @Override
     public String toString() {
-        return "Country [id=" + id + ", code=" + code + ", currency=" + currency + ", name=" + name + "]";
+        return "Country [id=" + id + ", code=" + code + ", currency=" + currency + ", currencyLbl=" + currencyLbl + ", name=" + name + "]";
     }
-
-    
-    
-    
 }

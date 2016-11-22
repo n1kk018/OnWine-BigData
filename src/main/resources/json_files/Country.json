@@ -1,117 +1,146 @@
 [{
     "code": "AT",
     "currency": "EUR",
+    "currency_lbl": "Euro",
     "name": "Autriche"
 }, {
     "code": "BE",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Belgique"
 }, {
     "code": "BG",
     "currency": "BGN",
+    "currency_lbl": "Lev Bulgare",
     "name": "Bulgarie"
 }, {
     "code": "CY",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Chypre"
 }, {
     "code": "CZ",
     "currency": "CZK",
+    "currency_lbl": "Couronne tch\u00e8que",
     "name": "R\u00e9publique Tch\u00e8que"
 }, {
     "code": "DE",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Allemagne"
 }, {
     "code": "DK",
     "currency": "DKK",
+    "currency_lbl": "Couronne danoise",
     "name": "Danemark"
 }, {
     "code": "EE",
     "currency": "EEK",
+    "currency_lbl": "Couronne estonienne",
     "name": "Estonie"
 }, {
     "code": "ES",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Espagne"
 }, {
     "code": "FI",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Finlande"
 }, {
     "code": "GB",
     "currency": "GBP",
+    "currency_lbl": "Livre sterling",
     "name": "Royaume-Uni"
 }, {
     "code": "GR",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Gr\u00e8ce"
 }, {
     "code": "HU",
     "currency": "HUF",
+    "currency_lbl": "Forint hongrois",
     "name": "Hongrie"
 }, {
     "code": "IE",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Irlande"
 }, {
     "code": "IT",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Italie"
 }, {
     "code": "JP",
     "currency": "JPY",
+    "currency_lbl": "Yen japonais",
     "name": "Japon"
 }, {
     "code": "LT",
     "currency": "LTL",
+    "currency_lbl": "Litas lituanien",
     "name": "Lituanie"
 }, {
     "code": "LU",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Luxembourg"
 }, {
     "code": "LV",
     "currency": "LVL",
+    "currency_lbl": "Lats letton",
     "name": "Lettonie"
 }, {
     "code": "MT",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Malte"
 }, {
     "code": "NL",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Pays-Bas"
 }, {
     "code": "PL",
     "currency": "PLN",
+    "currency_lbl": "Zloty polonais",
     "name": "Pologne"
 }, {
     "code": "PT",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Portugal"
 }, {
     "code": "RO",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Roumanie"
 }, {
     "code": "SE",
     "currency": "SEK",
+    "currency_lbl": "Couronne su\u00e8doise",
     "name": "Su\u00e8de"
 }, {
     "code": "SI",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Slov\u00e9nie"
 }, {
     "code": "SK",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "Slovaquie"
 }, {
     "code": "US",
     "currency": "USD",
+    "currency_lbl": "Dollar U.S",
     "name": "Etats-Unis"
 }, {
     "code": "FR",
-    "currency": "EUR",
+    "currency": "EUR", 
+    "currency_lbl": "Euro",
     "name": "France"
 }]

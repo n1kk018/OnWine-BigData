@@ -69,12 +69,12 @@ public class TestData implements CommandLineRunner {
     @Override
     public void run(String... paramArg0) throws Exception {
         System.out.println("==============Début insertion==============");
-        //countryRepo.deleteAll();
-        //productRepo.deleteAll();
+        countryRepo.deleteAll();
+        productRepo.deleteAll();
         orderRepo.deleteAll();
         customerRepo.deleteAll();
-        //createCountryCollFromFile();
-        //createProductCollFomFile();
+        createCountryCollFromFile();
+        createProductCollFomFile();
         List<Country> countries = countryRepo.findAll();
         List<Product> products = productRepo.findAll();
         List<String> civilities = new ArrayList<String>();
