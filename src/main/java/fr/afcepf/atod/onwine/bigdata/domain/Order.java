@@ -31,6 +31,8 @@ public class Order implements Serializable {
     private Double shippingFees;
     private Double taxes;
     private String currency;
+    @Field("currency_lbl")
+    private String currencyLbl;
 	private Customer customer;
 	private List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 
@@ -46,7 +48,7 @@ public class Order implements Serializable {
 
 	
 	public Order(Long paramJpaId, Date paramCreatedAt, Date paramPaidAt, Double paramShippingFees, Double paramTaxes,
-            String paramCurrency, Customer paramCustomer) {
+            String paramCurrency,String paramCurrencyLbl, Customer paramCustomer) {
         super();
         jpaId = paramJpaId;
         createdAt = paramCreatedAt;
@@ -54,6 +56,7 @@ public class Order implements Serializable {
         shippingFees = paramShippingFees;
         taxes = paramTaxes;
         currency = paramCurrency;
+        currencyLbl = paramCurrencyLbl;
         customer = paramCustomer;
     }
 
@@ -115,6 +118,28 @@ public class Order implements Serializable {
     public Double getShippingFees() {
         return shippingFees;
     }
+    
+    
+
+
+    /**
+     * @return the currencyLbl
+     */
+    public String getCurrencyLbl() {
+        return currencyLbl;
+    }
+
+
+
+
+    /**
+     * @param paramCurrencyLbl the currencyLbl to set
+     */
+    public void setCurrencyLbl(String paramCurrencyLbl) {
+        currencyLbl = paramCurrencyLbl;
+    }
+
+
 
 
     public void setShippingFees(Double paramShippingFees) {
@@ -150,7 +175,7 @@ public class Order implements Serializable {
     @Override
     public String toString() {
         return "Order [id=" + id + ", jpaId=" + jpaId + ", createdAt=" + createdAt + ", paidAt=" + paidAt + ", shippingFees=" + shippingFees
-                + ", taxes=" + taxes + ", currency=" + currency + ", customer=" + customer + ", orderDetails="
+                + ", taxes=" + taxes + ", currency=" + currencyLbl + ", customer=" + customer + ", orderDetails="
                 + orderDetails + "]";
     }
 }

@@ -85,6 +85,7 @@ public class TestData implements CommandLineRunner {
             int idxCivility = new Random().nextInt(civilities.size());
             int nbDetails = (new Random().nextInt(5))+1;
             String currency = countries.get(idxCountry).getCurrency();
+            String currencyLbl = countries.get(idxCountry).getCurrencyLbl();
             String randomZip = String.format("%05d",new Random().nextInt(99999));
             int randomNumber = (int) (i+((int) Math.random()*10));
             Customer c=null;
@@ -125,6 +126,7 @@ public class TestData implements CommandLineRunner {
                 qtTotal += quantity;
             }
             o.setCurrency(currency);
+            o.setCurrencyLbl(currencyLbl);
             o.setCustomer(c);
             Timestamp priseCommande = getRandomDate(formatter.format(inscription));
             o.setCreatedAt(priseCommande);
