@@ -37,6 +37,17 @@ public class QueryTester implements CommandLineRunner {
         for (Product product : list) {
             System.out.println(product);
         }
+        /*List<KeyValDTO> list = mongoTemplate.aggregate(Aggregation.newAggregation(
+                Aggregation.unwind("orderDetails"),
+                Aggregation.group("orderDetails.productOrdered.name")
+                .last("orderDetails.productOrdered.name").as("key")
+                .sum("orderDetails.quantite").as("val"),
+                Aggregation.sort(Sort.Direction.DESC,"val"),
+                Aggregation.limit(10)
+        ), Order.class,KeyValDTO.class).getMappedResults();
+        for (KeyValDTO keyValDTO : list) {
+            System.out.println(keyValDTO);
+        }*/
     }
 
 }
